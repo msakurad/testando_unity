@@ -1,16 +1,8 @@
 #include "tests.h"
 
-void	setUp(void)
-{
-}
-
-void	tearDown(void)
-{
-}
-
 void	test_ft_isalpha_ftvslibc_true(void)
 {
-	printf("cmp ft %d vs lib %d\n", ft_isalpha('c'), isalpha('c'));
+	printf("cmp ft %d vs lib %d\n", ft_isalpha('A'), isalpha('A'));
 	TEST_ASSERT(isalpha('c') == ft_isalpha('c'));
 	TEST_ASSERT(isalpha('1') == ft_isalpha('1'));
 
@@ -31,12 +23,12 @@ void	test_ft_isalpha_inputspecialcharac_false(void)
 	TEST_ASSERT_EQUAL_INT(0, ft_isalpha('!'));
 }
 
-int	main(void)
+void	run_test_ft_isalpha(void)
 {
 	UNITY_BEGIN();
 	RUN_TEST(test_ft_isalpha_ftvslibc_true);
 	RUN_TEST(test_ft_isalpha_inputlowercaseletter_true);
 	RUN_TEST(test_ft_isalpha_inputuppercaseletter_true);
 	RUN_TEST(test_ft_isalpha_inputspecialcharac_false);
-	return (UNITY_END());
+	UNITY_END();
 }

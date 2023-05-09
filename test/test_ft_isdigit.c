@@ -1,11 +1,11 @@
 #include "tests.h"
 
-void	setUp(void)
+void	test_ft_isdigit_ftvslibc_true(void)
 {
-}
+	TEST_ASSERT(isdigit('c') == ft_isdigit('c'));
+	printf("cmp ft %d vs lib %d\n", ft_isdigit('1'), isdigit('1'));
+	TEST_ASSERT(isdigit('1') == ft_isdigit('1'));
 
-void	tearDown(void)
-{
 }
 
 void	test_ft_isdigit_inputnumber_true(void)
@@ -15,13 +15,16 @@ void	test_ft_isdigit_inputnumber_true(void)
 
 void	test_ft_isdigit_inputothercarac_false(void)
 {
-	TEST_ASSERT_NOT_EQUAL_INT(0, ft_isdigit('D'));
+	TEST_ASSERT_EQUAL_INT(0, ft_isdigit('D'));
+	TEST_ASSERT_EQUAL_INT(0, ft_isdigit('!'));
+	TEST_ASSERT_EQUAL_INT(0, ft_isdigit('\n'));
 }
 
-int	main(void)
+void	run_test_ft_isdigit(void)
 {
 	UNITY_BEGIN();
+	RUN_TEST(test_ft_isdigit_ftvslibc_true);
 	RUN_TEST(test_ft_isdigit_inputnumber_true);
 	RUN_TEST(test_ft_isdigit_inputothercarac_false);
-	return (UNITY_END());
+	UNITY_END();
 }

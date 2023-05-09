@@ -9,4 +9,7 @@
 # include <string.h>
 # include <ctype.h>
 
+void	run_test_ft_isalpha(void);
+void	run_test_ft_isdigit(void);
+
 #endif
